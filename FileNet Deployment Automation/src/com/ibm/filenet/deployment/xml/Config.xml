@@ -1,0 +1,19 @@
+<Config>
+	<deploymentTreeLocation>C:\IBM\FileNet\ContentEngine\tools\deploy\P8DeploymentData</deploymentTreeLocation>
+	<version>5.2.1</version>
+    <testConnection>true</testConnection>
+	<storePassword>true</storePassword>
+	<Connection>
+		<Type>http</Type>
+		<ApplicationServer>WebSphere</ApplicationServer>
+		<Server>localhost</Server>
+		<Port>9081</Port>
+		<Path>wsi/FNCEWS40MTOM/</Path>
+		<UserName>admin</UserName>
+	</Connection>
+	<Mode>overwrite</Mode>
+	<DeployDataSet>C:\IBM\FileNet\ContentEngine\tools\deploy\P8DeploymentData\Environments\Source Environment</DeployDataSet>
+	<Environment>Source Environment</Environment>
+	<deleteDestinationFilesOnError>true</deleteDestinationFilesOnError>
+	<primarySourceObjectStore></primarySourceObjectStore>
+</Config>

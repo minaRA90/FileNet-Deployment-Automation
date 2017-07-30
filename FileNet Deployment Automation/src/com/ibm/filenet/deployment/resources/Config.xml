@@ -1,0 +1,64 @@
+<Config> 
+    <deploymentManagerPath>C:\IBM\FileNet\ContentEngine\tools\deploy\</deploymentManagerPath>
+	<deploymentTreeLocation>C:\IBM\FileNet\ContentEngine\tools\deploy\P8DeploymentData</deploymentTreeLocation>
+	
+	<!--  To create operation XML files and generate audit report in it-->
+    <deploymentWorkspace>C:\\</deploymentWorkspace>
+	<AnalysisReportFileName>/FnDeployment/AnalyisisReport.xml </AnalysisReportFileName>
+	<OptionSetPath>/FnDeployment/config.xml</OptionSetPath>
+	
+	<version>5.2.1</version>
+    <testConnection>true</testConnection>
+	<storePassword>true</storePassword>
+	<analysisFailuresLimit>100</analysisFailuresLimit>
+	<deleteAnalysisResultsFileOnError>false</deleteAnalysisResultsFileOnError>
+	<!-- >UpdateAlways || UpdateIfNewer || UpdateNotAllowed</!-->
+	<importUpdateOption>UpdateAlways</importUpdateOption>
+	
+	<SourceConnection>
+		<Type>http</Type>
+		<ApplicationServer>WebSphere</ApplicationServer>
+		<Server>localhost</Server>
+		<Port>9081</Port>
+		<Path>wsi/FNCEWS40MTOM/</Path>
+		<UserName>admin</UserName>
+	</SourceConnection>
+	
+	<DestinationConnection>
+		<Type>http</Type>
+		<ApplicationServer>WebSphere</ApplicationServer>
+		<Server>10.10.112.16</Server>
+		<Port>9085</Port>
+		<Path>wsi/FNCEWS40MTOM/</Path>
+		<UserName>srv.BPM</UserName>
+	</DestinationConnection>
+	
+	<Mode>overwrite</Mode>
+	<!-- <DeployDataSet>C:\IBM\FileNet\ContentEngine\tools\deploy\P8DeploymentData\Environments\Source Environment</DeployDataSet> -->
+	<deleteDestinationFilesOnError>true</deleteDestinationFilesOnError>
+	<primarySourceObjectStore>FNOS1</primarySourceObjectStore>
+	
+    <!-- This is for destination LDAP to retrieve destnation users to map them -->	
+	<LDAPDataSource>
+	<Filter type="HalfMap" >Destination Environment</Filter>
+		<Realms>
+			<Realm>dc=saib,dc=com</Realm>
+		</Realms>
+   </LDAPDataSource> 
+	
+	<pair>Source - Destination</pair>
+	<SourceEnvironment>Source Environment</SourceEnvironment>
+	<DestinationEnvironment>Destination Environment</DestinationEnvironment>
+	<useStorageAreaMap>true</useStorageAreaMap>
+	<useStoragePolicyMap>true</useStoragePolicyMap>	
+	<mapStoragePolicies>true</mapStoragePolicies>
+	<mapStorageAreas>true</mapStorageAreas>
+	<generateDetailedReport>true</generateDetailedReport>
+	
+	<!-- for create deploy package & expand deploy package  -->
+	<overwritePackage>true</overwritePackage>
+	<includeHalfMaps>true</includeHalfMaps>
+	<DeployPackage>SourceEnvironment.zip</DeployPackage>
+	<!-- Overwrite || Merge || LeaveAsIs -->
+	<halfMapMode>Overwrite</halfMapMode>
+</Config>

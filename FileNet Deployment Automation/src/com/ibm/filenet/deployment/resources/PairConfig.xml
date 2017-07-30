@@ -1,0 +1,14 @@
+<PairConfig version="1">
+	<Description/>
+	<Source name="Source Environment"/>
+	<Destination name="Destination Environment"/>
+	<DataFiles>
+		<DataFile type="ObjectStore" use="yes">
+			<SubMap type="StoragePolicy" use="yes"/>
+			<SubMap type="StorageArea" use="yes"/>
+		</DataFile>
+		<DataFile type="Principal" use="yes"/>
+		<DataFile type="Service" use="yes"/>
+		<DataFile type="ConnectionPoint" use="yes"/>		
+	</DataFiles>
+</PairConfig>
